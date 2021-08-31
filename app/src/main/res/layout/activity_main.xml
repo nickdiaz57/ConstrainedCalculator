@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--        android:text="@string/number_display"-->
+    <TextView
+        android:id="@+id/number_display"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="?colorPrimary"
+        android:textAlignment="viewEnd"
+        android:textColor="?colorOnPrimary"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/numberTable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
+
+    <TableLayout
+        android:id="@+id/numberTable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_display">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_clear"
+                style="@style/RoundButton"
+                android:text="@string/clear"
+                android:textColor="@color/clear_red"
+                />
+<!--                android:onClick="btnClear"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_parentheses"
+                style="@style/OperatorButton"
+                android:text="@string/parentheses" />
+<!--                android:onClick="btnParentheses"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_percent"
+                style="@style/OperatorButton"
+                android:text="@string/percent" />
+<!--                android:onClick="btnPercent"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_divide"
+                style="@style/OperatorButton"
+                android:text="@string/divide" />
+<!--                android:onClick="btnDivide"-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn7"
+                style="@style/RoundButton"
+                android:text="@string/seven" />
+<!--                android:onClick="btnSeven"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn8"
+                style="@style/RoundButton"
+                android:text="@string/eight" />
+<!--                android:onClick="btnEight"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn9"
+                style="@style/RoundButton"
+                android:text="@string/nine" />
+<!--                android:onClick="btnNine"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_multiply"
+                style="@style/OperatorButton"
+                android:text="@string/multiply" />
+<!--                android:onClick="btnMultiply"-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn4"
+                style="@style/RoundButton"
+                android:text="@string/four" />
+<!--                android:onClick="btnFour"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn5"
+                style="@style/RoundButton"
+                android:text="@string/five" />
+<!--                android:onClick="btnFive"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn6"
+                style="@style/RoundButton"
+                android:text="@string/six" />
+<!--                android:onClick="btnSix"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_minus"
+                style="@style/OperatorButton"
+                android:text="@string/minus" />
+<!--                android:onClick="btnMinus"-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn1"
+                style="@style/RoundButton"
+                android:text="@string/one" />
+<!--                android:onClick="btnOne"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn2"
+                style="@style/RoundButton"
+                android:text="@string/two" />
+<!--                android:onClick="btnTwo"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn3"
+                style="@style/RoundButton"
+                android:text="@string/three" />
+<!--                android:onClick="btnThree"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_plus"
+                style="@style/OperatorButton"
+                android:text="@string/plus"/>
+<!--                android:onClick="btnPlus"-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_plus_minus"
+                style="@style/RoundButton"
+                android:text="@string/plus_minus" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn0"
+                style="@style/RoundButton"
+                android:text="@string/zero" />
+<!--                android:onClick="btnZero"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_point"
+                style="@style/RoundButton"
+                android:text="@string/point" />
+<!--                android:onClick="btnPoint"-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_equals"
+                style="@style/EqualsButton"
+                android:text="@string/equals"
+                />
+<!--                android:onClick="evaluateExpression"-->
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
