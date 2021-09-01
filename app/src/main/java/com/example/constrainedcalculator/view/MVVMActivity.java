@@ -103,18 +103,6 @@ public class MVVMActivity extends AppCompatActivity {
 
     public void handleNegative() {
         String string = binding.numberDisplay.getText().toString();
-//        String lastChar = string.substring(string.length() - 1);
-
-        //check if character after last operator is a number
-        //  if it is, save string after last operator
-        //  add an open bracket and a minus sign to beginning, change openParentheses to false
-        //  add new substring back onto old string
-        //if it is an open bracket, check if the character after that is a minus sign
-        //  if it is, do nothing
-        //  if it isnt, save the string after that point, add a minus sign to the beginning, then add
-        //  new substring back onto old string
-        //if last character is an operator
-        //  add open bracket and minus sign, change openParentheses to false
 
         if (viewModel.displayEmpty) {//if nothing is in the display, add parentheses and minus
             addToDisplay("(-");
