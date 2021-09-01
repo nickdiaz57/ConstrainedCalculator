@@ -1,16 +1,21 @@
 package com.example.constrainedcalculator.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.constrainedcalculator.Evaluator;
 import com.example.constrainedcalculator.R;
 import com.example.constrainedcalculator.databinding.ActivityMainBinding;
 
 public class NewMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
+    Evaluator evaluator = new Evaluator();
+    String previousParentheses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,8 @@ public class NewMainActivity extends AppCompatActivity implements View.OnClickLi
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        previousParentheses = ")";
 
         binding.btn0.setOnClickListener(this);
         binding.btn1.setOnClickListener(this);
@@ -36,6 +43,9 @@ public class NewMainActivity extends AppCompatActivity implements View.OnClickLi
         binding.btnMinus.setOnClickListener(view -> addToDisplay(getString(R.string.minus)));
         binding.btnPlus.setOnClickListener(view -> addToDisplay(getString(R.string.plus)));
         binding.btnPoint.setOnClickListener(view -> addToDisplay(getString(R.string.point)));
+//        binding.btnPercent.setOnClickListener(view -> parseOutput());
+        binding.btnParentheses.setOnClickListener(view -> handleParentheses());
+        binding.btnEquals.setOnClickListener(view -> evaluateExpression());
     }
 
     @Override
@@ -59,6 +69,38 @@ public class NewMainActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void clearDisplay() {
+        previousParentheses = ")";
         binding.numberDisplay.setText("");
     }
+
+    public void handleParentheses() {
+        if (previousParentheses == ")") {
+            addToDisplay("(");
+            previousParentheses = "(";
+        } else {
+            addToDisplay(")");
+            previousParentheses = ")";
+        }
+    }
+
+    public void evaluateExpression() {
+        String output = (String) binding.numberDisplay.getText();
+        output = output.replace('x', '*');
+        output = output.replace('X', '*');
+        output = output.replace('÷', '/');
+
+        try {
+            output = String.valueOf(evaluator.eval(output));
+            binding.numberDisplay.setText(output);
+        } catch (Exception e) {
+            Toast.makeText(NewMainActivity.this, "Invalid Expression", Toast.LENGTH_SHORT).show();
+            clearDisplay();
+        }
+    }
+    //dont allow another operator in string if previous character is an operator
+    //iterate through string before current position, check if an operator is present
+    //if there is, everything after that operator will get a set of parentheses and a negative operator
+    //figure out something for the percent
+    //change to an edittext instead of a textview, useful for editing expressions in the middle
+    //add top row of keys and backspace button
 }

@@ -11,7 +11,7 @@
         android:theme="@style/Theme.ConstrainedCalculator">
 
         <activity
-            android:name=".view.NewMainActivity"
+            android:name=".view.MVVMActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
