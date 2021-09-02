@@ -11,7 +11,6 @@ import androidx.lifecycle.MutableLiveData;
 public class MainViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> displayString = new MutableLiveData<>();
-    private final static String TAG = "MainViewModel";
     public boolean displayEmpty;
 
     public MainViewModel(@NonNull Application application) {
@@ -22,6 +21,7 @@ public class MainViewModel extends AndroidViewModel {
         return displayString;
     }
 
+    //change characters in input string to work with eval method
     public String parseExpression(String expression) {
         expression = expression.replace('x', '*');
         expression = expression.replace('X', '*');
